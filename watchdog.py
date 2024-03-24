@@ -35,10 +35,10 @@ patterns = [
     r'/((\%3D|(=))[^n]*((%27)|(\')\(\-\-)|(\%3B)|(;))/i',
         
     # Pattern for 'union' keyword
-    r'\w*((\%27)|(''))((\%6F)|o|(\%4F))((\%72)|r|(\%52))/ix',
+    r'\w*((\%27)|(\'))((\%6F)|o|(\%4F))((\%72)|r|(\%52))/ix',
     
     # Union keyword injection
-    r'((\%27)|(''))union/ix',
+    r'((\%27)|(\'))union/ix',
         
     # Pattern for 'exec sp_' or 'exec xp_'
     r'exec(\s|\+)+(s|x)p\w+/ix'
