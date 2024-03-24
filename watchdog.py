@@ -1,4 +1,6 @@
+import argparse
 import re
+
 patterns = [
     # Classic SQL Injection
     r'\'\s*OR\s+',
@@ -82,6 +84,28 @@ def detect_sql_injection(log_entry):
             return True
     return False
 
-log_entry = "SELECT * FROM users WHERE username = 'admin' AND password = 'password'--"
-if detect_sql_injection(log_entry):
-    print("Potential SQL injection detected in log entry:", log_entry)
+def log_analyzer(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            for line_number, log_entry in enumerate(file, start=1):
+                try:
+                    fields = log_entry.strip().split(' ')
+                    if len(fields) >= 14:
+                        uri_stem = fields[4]
+                        if uri_stem and detect_sql_injection(uri_stem):
+                            print(f"Potential SQL injection detected in URI stem of GET request at line {line_number}: {log_entry.strip()}")
+                except Exception as e:
+                    print(f"Error processing log entry at line {line_number}: {e}")
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+    except Exception as e:
+        print(f"Error opening file: {e}")
+
+def main():
+    parser = argparse.ArgumentParser(description="Detect potential SQL injection in a log file.")
+    parser.add_argument("file_path", help="Path to the log file to analyze")
+    args = parser.parse_args()
+    log_analyzer(args.file_path)
+
+if __name__ == "__main__":
+    main()
