@@ -32,6 +32,7 @@ The script scans the log file and reports any lines containing potential SQL inj
 ```
 Potential SQL injection detected at line 123: GET /login.php?id=1+AND+1=1 HTTP/1.1
 ```
+`ITS A CLI BASED TOOL SO YOU CAN MOST DEFINITELY STORE THE OUTPUT/RESULTS OF THE LOG SCAN IN ANY TEXT FILE YOU WANT.`
 
 ## Shortcomings:
 - *Limited Scope*:
