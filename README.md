@@ -9,7 +9,7 @@ This script is for educational purposes only and should not be considered a comp
 - Analyzes both Apache and IIS server log files.
 - Identifies potential SQL injection patterns.
 - Reports line numbers and log entries with potential threats.
-- Compatible with linux OS.
+- Compatible with linux OS and Windows OS.
 
 ## Reqirements:
 Python 3.x
@@ -24,7 +24,7 @@ Python 3.x
    Open your terminal and navigate to the directory where you saved the script.
    Use the following command, replacing `path/to/your/log_file.log` with the actual path to your server log file:
    ```
-   python SQLiWatchdog.py --format [iis/apache] path/to/your/log_file.log
+   python watchdog.py --format [iis/apache] path/to/your/log_file.log
    ```
    
 ## Output:
