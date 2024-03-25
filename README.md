@@ -1,15 +1,15 @@
 # SQL Injection Watchdog 
-A Python Script for IIS Log Analysis (Currently Supports IIS Servers)
-This is a CLI(command line interface) based tool. The script `watchdog.py`, helps identify potential SQL injection attempts within an IIS server log file. It scans for various patterns commonly used in SQL injection attacks targeting web applications running on IIS servers.
+A Python Script for Log Analysis (Compatible with IIS and Apache Servers)
+This is a CLI (command-line interface) based tool designed to identify potential SQL injection attempts within web server log files. The script `watchdog.py` scans log files for various patterns commonly used in SQL injection attacks targeting web applications running on both IIS and Apache servers.
 
 ## Disclaimer:
 This script is for educational purposes only and should not be considered a complete security solution.
-This script is currently designed to analyze IIS server log files. The format of Apache server logs differs, and this script might not be directly compatible without modifications.
 
 ## Features:
-- Analyzes IIS server log files.
+- Analyzes both Apache and IIS server log files.
 - Identifies potential SQL injection patterns.
 - Reports line numbers and log entries with potential threats.
+- Compatible with linux OS.
 
 ## Reqirements:
 Python 3.x
@@ -22,9 +22,9 @@ Python 3.x
    
 2. **Run the script:**
    Open your terminal and navigate to the directory where you saved the script.
-   Use the following command, replacing `path/to/your/log_file.log` with the actual path to your IIS server log file:
+   Use the following command, replacing `path/to/your/log_file.log` with the actual path to your server log file:
    ```
-   python SQLiWatchdog.py path/to/your/log_file.log
+   python SQLiWatchdog.py --format [iis/apache] path/to/your/log_file.log
    ```
    
 ## Output:
